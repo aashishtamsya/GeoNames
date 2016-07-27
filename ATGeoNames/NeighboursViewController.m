@@ -54,9 +54,74 @@
     [AppDelegate downloadDataFromURL:url withCompletionHandler:^(NSData *data) {
         // Make sure that there is data.
         if (data != nil) {
+            self.xmlParser = [[NSXMLParser alloc] initWithData:data];
+            self.xmlParser.delegate = self;
             
+            // Initialize the mutable string that we'll use during parsing.
+            self.foundValue = [[NSMutableString alloc] init];
+            
+            // Start parsing.
+            [self.xmlParser parse];
         }
     }];
+}
+
+#pragma mark Parser Methods
+
+-(void)parserDidStartDocument:(NSXMLParser *)parser{
+    // Initialize the neighbours data array.
+    self.allNeightbouringCountries = [[NSMutableArray alloc] init];
+}
+
+-(void)parserDidEndDocument:(NSXMLParser *)parser{
+    // When the parsing has been finished then simply reload the table view.
+    [self.tableViewNeighbouringCountries reloadData];
+}
+
+-(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
+    NSLog(@"%@", [parseError localizedDescription]);
+}
+
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+    
+    // If the current element name is equal to "geoname" then initialize the temporary dictionary.
+    if ([elementName isEqualToString:@"geoname"]) {
+        self.dictTempDataStorage = [[NSMutableDictionary alloc] init];
+    }
+    
+    // Keep the current element.
+    self.currentElement = elementName;
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+    
+    if ([elementName isEqualToString:@"geoname"]) {
+        // If the closing element equals to "geoname" then the all the data of a neighbour country has been parsed and the dictionary should be added to the neighbours data array.
+        [self.allNeightbouringCountries addObject:[[NSDictionary alloc] initWithDictionary:self.dictTempDataStorage]];
+    }
+    else if ([elementName isEqualToString:@"name"]){
+        // If the country name element was found then store it.
+        [self.dictTempDataStorage setObject:[NSString stringWithString:self.foundValue] forKey:@"name"];
+    }
+    else if ([elementName isEqualToString:@"toponymName"]){
+        // If the toponym name element was found then store it.
+        [self.dictTempDataStorage setObject:[NSString stringWithString:self.foundValue] forKey:@"toponymName"];
+    }
+    
+    // Clear the mutable string.
+    [self.foundValue setString:@""];
+}
+
+
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    // Store the found characters if only we're interested in the current element.
+    if ([self.currentElement isEqualToString:@"name"] ||
+        [self.currentElement isEqualToString:@"toponymName"]) {
+        
+        if (![string isEqualToString:@"\n"]) {
+            [self.foundValue appendString:string];
+        }
+    }
 }
 
 /*
@@ -78,9 +143,8 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    return self.allNeightbouringCountries.count;
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -90,6 +154,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+    cell.textLabel.text = [[self.allNeightbouringCountries objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.detailTextLabel.text = [[self.allNeightbouringCountries objectAtIndex:indexPath.row] objectForKey:@"toponymName"];
     
     return cell;
 }

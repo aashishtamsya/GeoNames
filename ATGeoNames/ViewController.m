@@ -184,14 +184,14 @@
     if (index != -1) {
         // Get the two-letter country code from the arrCountryCodes array.
         self.countryCode = [self.allCountryCodes objectAtIndex:index];
+        [self getCountryInfo];
     }
     else{
         // If the country was not found then show an alert view displaying a relevant message.
         [[[UIAlertView alloc] initWithTitle:@"Country Not Found" message:@"The country you typed in was not found." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Done", nil] show];
     }
     
-    self.countryCode = [self.allCountryCodes objectAtIndex:index];
-    [self getCountryInfo];
+    
     // Hide the keyboard.
     [self.textFieldCountrySearch resignFirstResponder];
     

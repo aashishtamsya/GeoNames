@@ -18,4 +18,17 @@
 
 -(void)downloadNeighbourCountries;
 
+
+
+@property (nonatomic, strong) NSXMLParser *xmlParser;
+
+@property (nonatomic, strong) NSMutableArray *allNeightbouringCountries;
+
+@property (nonatomic, strong) NSMutableDictionary *dictTempDataStorage;
+
+@property (nonatomic, strong) NSMutableString *foundValue;
+
+@property (nonatomic, strong) NSString *currentElement;
+
+
 @end
