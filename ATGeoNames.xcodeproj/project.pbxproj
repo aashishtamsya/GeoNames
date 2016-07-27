@@ -15,6 +15,9 @@
 		E1060D321D48A99C00A27277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1060D301D48A99C00A27277 /* LaunchScreen.storyboard */; };
 		E1060D3D1D48A99C00A27277 /* ATGeoNamesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1060D3C1D48A99C00A27277 /* ATGeoNamesTests.m */; };
 		E1060D481D48A99C00A27277 /* ATGeoNamesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1060D471D48A99C00A27277 /* ATGeoNamesUITests.m */; };
+		E1E9E9CC1D48B32D001983A0 /* countries_short.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1E9E9CA1D48B32D001983A0 /* countries_short.txt */; };
+		E1E9E9CD1D48B32D001983A0 /* countries.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1E9E9CB1D48B32D001983A0 /* countries.txt */; };
+		E1E9E9D01D48B472001983A0 /* NeighboursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E9CF1D48B472001983A0 /* NeighboursViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 		E1060D431D48A99C00A27277 /* ATGeoNamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATGeoNamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1060D471D48A99C00A27277 /* ATGeoNamesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATGeoNamesUITests.m; sourceTree = "<group>"; };
 		E1060D491D48A99C00A27277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1E9E9CA1D48B32D001983A0 /* countries_short.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries_short.txt; sourceTree = "<group>"; };
+		E1E9E9CB1D48B32D001983A0 /* countries.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.txt; sourceTree = "<group>"; };
+		E1E9E9CE1D48B472001983A0 /* NeighboursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeighboursViewController.h; sourceTree = "<group>"; };
+		E1E9E9CF1D48B472001983A0 /* NeighboursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighboursViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +108,14 @@
 		E1060D211D48A99C00A27277 /* ATGeoNames */ = {
 			isa = PBXGroup;
 			children = (
+				E1E9E9CA1D48B32D001983A0 /* countries_short.txt */,
+				E1E9E9CB1D48B32D001983A0 /* countries.txt */,
 				E1060D251D48A99C00A27277 /* AppDelegate.h */,
 				E1060D261D48A99C00A27277 /* AppDelegate.m */,
 				E1060D281D48A99C00A27277 /* ViewController.h */,
 				E1060D291D48A99C00A27277 /* ViewController.m */,
+				E1E9E9CE1D48B472001983A0 /* NeighboursViewController.h */,
+				E1E9E9CF1D48B472001983A0 /* NeighboursViewController.m */,
 				E1060D2B1D48A99C00A27277 /* Main.storyboard */,
 				E1060D2E1D48A99C00A27277 /* Assets.xcassets */,
 				E1060D301D48A99C00A27277 /* LaunchScreen.storyboard */,
@@ -243,8 +254,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E9E9CC1D48B32D001983A0 /* countries_short.txt in Resources */,
 				E1060D321D48A99C00A27277 /* LaunchScreen.storyboard in Resources */,
 				E1060D2F1D48A99C00A27277 /* Assets.xcassets in Resources */,
+				E1E9E9CD1D48B32D001983A0 /* countries.txt in Resources */,
 				E1060D2D1D48A99C00A27277 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +285,7 @@
 			files = (
 				E1060D2A1D48A99C00A27277 /* ViewController.m in Sources */,
 				E1060D271D48A99C00A27277 /* AppDelegate.m in Sources */,
+				E1E9E9D01D48B472001983A0 /* NeighboursViewController.m in Sources */,
 				E1060D241D48A99C00A27277 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +512,7 @@
 				E1060D4E1D48A99C00A27277 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1060D4F1D48A99C00A27277 /* Build configuration list for PBXNativeTarget "ATGeoNamesTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +521,7 @@
 				E1060D511D48A99C00A27277 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1060D521D48A99C00A27277 /* Build configuration list for PBXNativeTarget "ATGeoNamesUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +530,7 @@
 				E1060D541D48A99C00A27277 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
