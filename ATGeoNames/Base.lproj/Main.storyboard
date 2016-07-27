@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nDM-UA-zRG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,75 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Search Country Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X72-ZR-IUx">
+                                <rect key="frame" x="20" y="89" width="561" height="40"/>
+                                <color key="backgroundColor" red="0.87673838350785338" green="0.62924525259613107" blue="0.14384216603477934" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.61724885471204183" green="0.083085341701737384" blue="0.19504478713447798" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NWR-t6-iIK"/>
+                                </constraints>
+                                <color key="textColor" red="0.87673838350785338" green="0.87673838350785338" blue="0.87673838350785338" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cHL-LV-pAg"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-xf-Rvq">
+                                <rect key="frame" x="0.0" y="139" width="600" height="461"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="GRm-Fe-fUO"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="MKA-AX-ABt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NVg-xf-Rvq" secondAttribute="bottom" id="B3L-Vx-UcD"/>
+                            <constraint firstItem="X72-ZR-IUx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DRd-9u-OHG"/>
+                            <constraint firstItem="X72-ZR-IUx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RPX-Jc-hso"/>
+                            <constraint firstItem="NVg-xf-Rvq" firstAttribute="top" secondItem="X72-ZR-IUx" secondAttribute="bottom" constant="10" id="RfC-j5-cON"/>
+                            <constraint firstItem="NVg-xf-Rvq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y2P-8d-c90"/>
+                            <constraint firstItem="X72-ZR-IUx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="gAT-om-OGQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NVg-xf-Rvq" secondAttribute="trailing" constant="-20" id="zf2-WG-YgM"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wTu-zx-SI8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="vdV-Ol-ijP">
+                            <connections>
+                                <action selector="composeBarButtonTapped:" destination="BYZ-38-t0r" id="STn-Ob-Hc9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barButtonCompose" destination="vdV-Ol-ijP" id="V5L-nQ-8qd"/>
+                        <outlet property="tableViewDetails" destination="NVg-xf-Rvq" id="19e-Le-5T6"/>
+                        <outlet property="textFieldCountrySearch" destination="X72-ZR-IUx" id="7lq-YG-tZ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jkG-qy-Fkf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nDM-UA-zRG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MrR-CG-JNX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PA9-bi-exy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpi-1i-crV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232" y="967"/>
         </scene>
     </scenes>
 </document>

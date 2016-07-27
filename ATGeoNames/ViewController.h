@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITextField *textFieldCountrySearch;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableViewDetails;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButtonCompose;
+
+- (IBAction)composeBarButtonTapped:(id)sender;
 
 -(void)getCountryInfo;
 
