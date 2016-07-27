@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import "AppDelegate.h"
+#import "NeighboursViewController.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -19,6 +21,7 @@
 
 - (IBAction)composeBarButtonTapped:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelCountryName;
 -(void)getCountryInfo;
 
 @end

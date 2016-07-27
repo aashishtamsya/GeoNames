@@ -33,24 +33,39 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-xf-Rvq">
-                                <rect key="frame" x="0.0" y="139" width="600" height="461"/>
+                                <rect key="frame" x="0.0" y="173" width="600" height="427"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="GRm-Fe-fUO"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="MKA-AX-ABt"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maN-Bx-D8f">
+                                <rect key="frame" x="20" y="139" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NVg-xf-Rvq" secondAttribute="bottom" id="B3L-Vx-UcD"/>
+                            <constraint firstItem="maN-Bx-D8f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CXK-XZ-BUe"/>
                             <constraint firstItem="X72-ZR-IUx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DRd-9u-OHG"/>
                             <constraint firstItem="X72-ZR-IUx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RPX-Jc-hso"/>
                             <constraint firstItem="NVg-xf-Rvq" firstAttribute="top" secondItem="X72-ZR-IUx" secondAttribute="bottom" constant="10" id="RfC-j5-cON"/>
                             <constraint firstItem="NVg-xf-Rvq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y2P-8d-c90"/>
+                            <constraint firstItem="NVg-xf-Rvq" firstAttribute="top" secondItem="maN-Bx-D8f" secondAttribute="bottom" constant="10" id="bdY-tt-pC5"/>
                             <constraint firstItem="X72-ZR-IUx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="gAT-om-OGQ"/>
+                            <constraint firstItem="maN-Bx-D8f" firstAttribute="top" secondItem="X72-ZR-IUx" secondAttribute="bottom" constant="10" id="gAe-gW-UDR"/>
+                            <constraint firstItem="maN-Bx-D8f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nYK-O0-jJs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NVg-xf-Rvq" secondAttribute="trailing" constant="-20" id="zf2-WG-YgM"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RfC-j5-cON"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wTu-zx-SI8">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="vdV-Ol-ijP">
@@ -61,6 +76,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="barButtonCompose" destination="vdV-Ol-ijP" id="V5L-nQ-8qd"/>
+                        <outlet property="labelCountryName" destination="maN-Bx-D8f" id="m8e-5q-QWy"/>
                         <outlet property="tableViewDetails" destination="NVg-xf-Rvq" id="19e-Le-5T6"/>
                         <outlet property="textFieldCountrySearch" destination="X72-ZR-IUx" id="7lq-YG-tZ0"/>
                     </connections>
@@ -82,8 +98,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kiB-aS-1LA">
-                                <rect key="frame" x="97" y="210" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="L2A-il-n6k" id="LcO-ge-Qbq"/>
+                                    <outlet property="delegate" destination="L2A-il-n6k" id="nH0-Oj-FfH"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,10 +114,14 @@
                             <constraint firstItem="kiB-aS-1LA" firstAttribute="leading" secondItem="gkI-bD-3xh" secondAttribute="leadingMargin" constant="-20" id="bzI-Dj-4uK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="t8F-A1-dcO"/>
+                    <connections>
+                        <outlet property="tableViewNeighbouringCountries" destination="kiB-aS-1LA" id="8og-ew-qdO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ux2-Xg-nBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="321"/>
+            <point key="canvasLocation" x="2524" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkG-qy-Fkf">
@@ -115,7 +139,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpi-1i-crV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232" y="967"/>
+            <point key="canvasLocation" x="354" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rZY-T6-llE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZeB-MT-X6D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w01-18-kEM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="L2A-il-n6k" kind="relationship" relationship="rootViewController" id="oM3-WU-5Jo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMK-Ug-qgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="321"/>
         </scene>
     </scenes>
 </document>

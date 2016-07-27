@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface NeighboursViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSXMLParserDelegate>
 
 
-@property (weak, nonatomic) IBOutlet UITableView *tblNeighbours;
+@property (nonatomic, strong) NSString *geonameID;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableViewNeighbouringCountries;
+
+-(void)downloadNeighbourCountries;
 
 @end

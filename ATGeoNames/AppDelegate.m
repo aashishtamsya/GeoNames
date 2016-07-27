@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 
 #warning Set your Geonames username in the kUsername constant.
-NSString *const kUsername = @"YOUR_USERNAME_HERE";
+//NSString *const kUsername = @"YOUR_USERNAME_HERE";
+NSString *const kUsername = @"aashishtamsya";
 
 
 @interface AppDelegate ()
