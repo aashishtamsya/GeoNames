@@ -26,8 +26,8 @@ $ git clone https://github.com/aashishtamsya/GeoNames.git
 ```
 
 
-##Demo
-![DEMO](https://github.com/aashishtamsya/SoundShakerObjC/blob/master/Resources/Demo/DEMO.gif)
+## Demo
+![DEMO](https://github.com/aashishtamsya/GeoNames/blob/master/Resources/DEMO.gif)
 
 ## Contributing
 
